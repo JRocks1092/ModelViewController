@@ -6,9 +6,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/getAlphabet", methods = ["POST"])
-def getAlphabet():
-    res = request.args.get("name")
+@app.route("/prdctAlphFrmImage", methods = ["POST"])
+def prdctAlphFrmImage():
+    res = request.files.get("image")
     alphabet = recogniseAlphabet(res)    
     return jsonify({ "predicted-alphabet":alphabet}),200
         
